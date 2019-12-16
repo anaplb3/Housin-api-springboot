@@ -1,4 +1,4 @@
-package com.dcx.pas.housinapi;
+package com.dcx.pas.housinapi.service;
 
 import com.dcx.pas.housinapi.model.User;
 import org.springframework.stereotype.Service;
