@@ -1,6 +1,6 @@
 package com.dcx.pas.housinapi.controller;
 
-import com.dcx.pas.housinapi.UserService;
+import com.dcx.pas.housinapi.service.UserService;
 import com.dcx.pas.housinapi.model.User;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
