@@ -17,12 +17,12 @@ import io.swagger.annotations.ApiModelProperty;
 @Table(name="TB_House")
 public class House implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@ApiModelProperty(value = "Código identificador da casa(anúncio)", example = "0")
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+  @ApiModelProperty(value = "Código identificador da casa(anúncio)", example = "0")
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private int id;
   
   @ApiModelProperty(value = "Objeto de endereço da casa", example = "Rua da Alegria, 349, Mamanguape, Centro")
   private HouseAddress endereco;
