@@ -9,7 +9,7 @@ public class HouseAddress {
   private int numero;
   private String cidade;
   private String bairro;
-  //private String estado; //TODO
+  //private String estado; //
 
   public HouseAddress(){};
   
