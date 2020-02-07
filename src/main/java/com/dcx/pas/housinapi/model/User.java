@@ -1,35 +1,54 @@
 package com.dcx.pas.housinapi.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import io.swagger.annotations.ApiModelProperty;
 
 public class User {
 
     @ApiModelProperty(value = "Código identificador do usuário", example = "0")
-    private int id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
 
     @ApiModelProperty(value = "Nome do usuário", example = "Ana Paula Lima")
+    @NotNull
+    @Size(min = 3, max = 30)
     private String nome;
 
     @ApiModelProperty(value = "Nome de usuário", example = "anaplb")
+    @NotNull
+    @Size(min = 3, max = 10)
     private String login;
 
     @ApiModelProperty(value = "Senha para o login", example = "aaa234")
+    @NotNull
+    @Size(min = 3, max = 12)
     private String senha;
 
     @ApiModelProperty(value = "Sexo do usuário", example = "feminino")
-    private String sexo;
+    @NotNull
+    @Size(min = 1, max = 1)
+    private char sexo;
 
     @ApiModelProperty(value = "Email do usuário", example = "lima.rhcp@gmail.com")
+    @NotNull
     private String email;
 
+    @NotNull
+    @Size(min = 9, max = 20)
     @ApiModelProperty(value = "Número de telefone do usuário", example = "83991929394")
     private String numeroTelefone;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,11 +76,11 @@ public class User {
         this.senha = senha;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 

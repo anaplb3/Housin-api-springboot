@@ -29,7 +29,7 @@ public class UserController {
     })
     @ApiOperation(value = "Retorna um usuario especifíco", response = User.class, produces = "application/json")
     @GetMapping("v1/api/usuarios/{id}")
-    public ResponseEntity<?> getUser(@PathVariable(value = "id") int id) {
+    public ResponseEntity<?> getUser(@PathVariable(value = "id") Long id) {
         User user = userService.getUser(id);
 
         if (user != null) return new ResponseEntity<>(user, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class UserController {
     })
     @ApiOperation(value = "Deleta um usuário baseado no ID passado")
     @DeleteMapping("v1/api/usuarios/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable(value = "id") int id) {
+    public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long id) {
         if (userService.deleteUser(id)) {
             return new ResponseEntity<>(HttpStatus.GONE);
         } else {
@@ -67,7 +67,7 @@ public class UserController {
             @ApiResponse( code = 400, message = "Não foi possível criar usuário")
     })
     @PutMapping("v1/api/usuarios/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable(value = "id") int id, @RequestBody User user) {
+    public ResponseEntity<?> updateUser(@PathVariable(value = "id") Long id, @RequestBody User user) {
         if(userService.updateUser(user)) return new ResponseEntity<>(HttpStatus.OK);
         else return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

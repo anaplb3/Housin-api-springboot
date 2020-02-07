@@ -1,15 +1,17 @@
 package com.dcx.pas.housinapi.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity 
-@Table(name="TB_House")
+@Table(name="casa")
 public class House implements Serializable{
 	
   private static final long serialVersionUID = 1L;
@@ -17,7 +19,7 @@ public class House implements Serializable{
   @ApiModelProperty(value = "Código identificador da casa(anúncio)", example = "0")
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private int id;
+  private Long codigoCasa;
   
   @ApiModelProperty(value = "Objeto de endereço da casa", example = "Rua da Alegria, 349, Mamanguape, Centro")
   private HouseAddress endereco;
@@ -28,25 +30,25 @@ public class House implements Serializable{
   //private List<Mobilia> mobilia;
   //private List<User> moradores;
 
-  public House(int id, HouseAddress endereco, String anuncioHeader) {
-    this.id = id;
+  public House(Long codigoCasa, HouseAddress endereco, String anuncioHeader) {
+    this.codigoCasa = codigoCasa;
     this.endereco = endereco;
     this.anuncioHeader = anuncioHeader;
   }
   
   public House(){};
 
-  public House(int id, String anuncioHeader){
-    this.id = id;
+  public House(Long codigoCasa, String anuncioHeader){
+    this.codigoCasa = codigoCasa;
     this.anuncioHeader = anuncioHeader;
   }
   
-  public int getId() {
-    return id;
+  public Long getcodigoCasa() {
+    return this.codigoCasa;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public void setcodigoCasa(Long codigoCasa) {
+    this.codigoCasa = codigoCasa;
   }
 
   public HouseAddress getEndereco() {
@@ -74,7 +76,7 @@ public class House implements Serializable{
     if (getClass() != obj.getClass())
       return false;
     House other = (House) obj;
-    if (id != other.id)
+    if (codigoCasa != other.codigoCasa)
       return false;
     return true;
   }

@@ -17,14 +17,14 @@ public class HouseService {
     return this.casasCadastradas;
   }
 
-  public House getHouse(int id){
+  public House getHouse(Long id){
     return findHouse(id);
     
   }
 
-  public House findHouse(int id){
+  public House findHouse(Long id){
     for(House h: casasCadastradas){
-      if(h.getId() == id){
+      if(h.getcodigoCasa() == id){
         return h;
       }
     }
@@ -32,7 +32,7 @@ public class HouseService {
   }
 
   public boolean createHouse(House house){
-    if(findHouse(house.getId()) == null) {
+    if(findHouse(house.getcodigoCasa()) == null) {
       return false;
     } else {
     this.casasCadastradas.add(house); 
@@ -40,7 +40,7 @@ public class HouseService {
     }
   }
 
-  public boolean deleteHouse(int id) {
+  public boolean deleteHouse(Long id) {
     try {
         this.casasCadastradas.remove(findHouse(id));
         return true;
@@ -50,7 +50,7 @@ public class HouseService {
   }
 
   public boolean updateUser(House house) {
-    House houseOld = findHouse(house.getId());
+    House houseOld = findHouse(house.getcodigoCasa());
     this.casasCadastradas.remove(houseOld);
     this.casasCadastradas.add(house);
     return true;

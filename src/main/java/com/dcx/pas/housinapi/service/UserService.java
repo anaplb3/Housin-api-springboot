@@ -13,7 +13,7 @@ public class UserService {
         return this.users;
     }
 
-    public User getUser(int id) {
+    public User getUser(Long id) {
         return findUser(id);
     }
 
@@ -24,7 +24,7 @@ public class UserService {
 
     }
 
-    public boolean deleteUser(int id) {
+    public boolean deleteUser(Long id) {
         try {
             this.users.remove(findUser(id));
             return true;
@@ -40,7 +40,7 @@ public class UserService {
         return true;
     }
 
-    private User findUser(int id) {
+    private User findUser(Long id) {
         for(User u : this.users) {
             if(u.getId() == id) {
                 return u;
